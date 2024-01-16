@@ -13,3 +13,5 @@ $password = $dbConfig->getPassword();
 $database = $dbConfig->getDatabase();
 
 $dbConnection = DatabaseConnection::getInstance($host, $username, $password, $database);
+
+$pdo = $dbConnection->getPDO();

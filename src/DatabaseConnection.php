@@ -4,11 +4,12 @@ namespace App;
 
 class DatabaseConnection {
     private static ?DatabaseConnection $instance = null;
+    private $pdo;
 
     private function __construct($host, $username, $password, $database)
     {
         try {
-            $this->instance = new \PDO(
+            $this->pdo = new \PDO(
                 "mysql:host={$host};dbname={$database}",
                 $username, 
                 $password,
@@ -25,5 +26,9 @@ class DatabaseConnection {
         }
 
         return self::$instance;
+    }
+
+    public function getPDO() {
+        return $this->pdo;
     }
 }
